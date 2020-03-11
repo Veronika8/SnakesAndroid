@@ -5,7 +5,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
+    <string name="repeat_password">Повторите пароль</string>
     <string name="to_come_in">Войти</string>
     <string name="authorization">Авторизация</string>
+    <string name="register">Зарегистрироваться</string>
     <string name="registration">Регистрация</string>
 </resources>

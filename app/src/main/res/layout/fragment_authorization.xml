@@ -30,7 +30,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonComeIn"
         android:layout_width="212dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -38,7 +38,7 @@
         android:text="@string/to_come_in" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="680dp"
