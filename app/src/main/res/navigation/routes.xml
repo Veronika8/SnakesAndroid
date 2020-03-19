@@ -16,7 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/authorizationFragment"
-        android:name="com.example.snakesandroid.presentation.AuthorizationFragment"
+        android:name="com.example.snakesandroid.presentation.authorization.AuthorizationFragment"
         android:label="fragment_authorization"
-        tools:layout="@layout/fragment_authorization" />
+        tools:layout="@layout/fragment_authorization" >
+        <action
+            android:id="@+id/action_authorizationFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
 </navigation>
