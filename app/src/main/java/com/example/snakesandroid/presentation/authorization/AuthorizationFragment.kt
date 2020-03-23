@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.NavHostFragment
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.snakesandroid.R
@@ -32,9 +31,6 @@ class AuthorizationFragment : MvpAppCompatFragment(), IAuthorizationView {
             presenter.authorization("${etLogin.text}", "${etPassword.text}")
         }
 
-        btnAuth.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.registrationFragment)
-        }
     }
 
     override fun showError(message: String) {

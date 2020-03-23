@@ -61,7 +61,7 @@
                 android:layout_height="@dimen/padding_16dp"/>
 
             <Button
-                android:id="@+id/btnAuth"
+                android:id="@+id/btnRegistration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/registration"/>
