@@ -7,32 +7,23 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
+import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakesandroid.R
+import com.example.snakesandroid.base.ABaseFragment
+import com.example.snakesandroid.domain.di.components.DaggerAppComponent
 import kotlinx.android.synthetic.main.fragment_authorization.*
+import javax.inject.Inject
 
-class AuthorizationFragment : MvpAppCompatFragment(), IAuthorizationView {
+class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
 
+    @Inject
     @InjectPresenter
     lateinit var presenter: AuthorizationPresenter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_authorization, container, false)
-    }
+    @ProvidePresenter
+    fun providePresenter() = presenter
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        btnLogin.setOnClickListener {
-            presenter.authorization("${etLogin.text}", "${etPassword.text}")
-        }
-
-    }
-
-    override fun showError(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    override fun inject() {
+        DaggerAppComponent.create().inject(this)
     }
 }

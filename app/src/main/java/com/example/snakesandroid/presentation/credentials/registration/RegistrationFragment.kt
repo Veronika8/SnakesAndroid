@@ -9,11 +9,12 @@ import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakesandroid.R
+import com.example.snakesandroid.base.ABaseFragment
 import com.example.snakesandroid.domain.di.components.DaggerAppComponent
 import kotlinx.android.synthetic.main.fragment_registration.*
 import javax.inject.Inject
 
-class RegistrationFragment: MvpAppCompatFragment, IRegistrationView {
+class RegistrationFragment: ABaseFragment(), IRegistrationView {
 
     @Inject
     @InjectPresenter
@@ -22,9 +23,10 @@ class RegistrationFragment: MvpAppCompatFragment, IRegistrationView {
     @ProvidePresenter //реализация для даггер
     fun providePresenter() = presenter
 
-    constructor(){
+    override fun inject() {
         DaggerAppComponent.create().inject(this)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

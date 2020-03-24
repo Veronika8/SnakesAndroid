@@ -3,9 +3,13 @@ package com.example.snakesandroid.presentation.credentials.authorization
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.snakesandroid.repositories.UserRepository
+import javax.inject.Inject
 
 @InjectViewState
-class AuthorizationPresenter: MvpPresenter<IAuthorizationView>() {
+class AuthorizationPresenter: MvpPresenter<IAuthorizationView> {
+
+    @Inject
+    constructor()
 
     var userRepository: UserRepository= UserRepository()
 
