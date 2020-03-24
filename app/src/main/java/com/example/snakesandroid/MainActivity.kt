@@ -2,7 +2,6 @@ package com.example.snakesandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.snakesandroid.presentation.registration.RegistrationFragment
 
 class MainActivity : AppCompatActivity() {
 
