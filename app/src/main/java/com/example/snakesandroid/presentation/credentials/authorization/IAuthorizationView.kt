@@ -5,5 +5,5 @@ import com.example.snakesandroid.base.IBaseView
 
 interface IAuthorizationView: IBaseView {
 
-    fun showError(message: String)
+    fun onSuccess()
 }

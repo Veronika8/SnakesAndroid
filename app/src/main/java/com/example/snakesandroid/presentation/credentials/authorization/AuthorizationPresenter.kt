@@ -2,6 +2,8 @@ package com.example.snakesandroid.presentation.credentials.authorization
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import com.example.snakesandroid.presentation.main.MainActivity
+import com.example.snakesandroid.base.SubRX
 import com.example.snakesandroid.domain.repositories.UserRepository
 import javax.inject.Inject
 
@@ -14,11 +16,17 @@ class AuthorizationPresenter: MvpPresenter<IAuthorizationView> {
     @Inject
     constructor()
 
-    fun authorization(login: String, pass: String){
+    fun authorization(login: String, password: String){
 
-        userRepository.authorization({
-            //
-            viewState.showError(it)
-        }, login, pass)
+        userRepository.login(SubRX { _, e ->
+
+            if (e != null) {
+                e.printStackTrace()
+                viewState.onError(e.localizedMessage)
+                return@SubRX
+            }
+
+            MainActivity.show()
+        }, login, password)
     }
 }

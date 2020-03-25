@@ -1,11 +1,17 @@
 package com.example.snakesandroid.domain.di.components
 
+import com.example.snakesandroid.domain.di.modules.NetModule
 import com.example.snakesandroid.presentation.credentials.authorization.AuthorizationFragment
 import com.example.snakesandroid.presentation.credentials.loading.LoadingFragment
 import com.example.snakesandroid.presentation.credentials.registration.RegistrationFragment
 import dagger.Component
+import javax.inject.Singleton
 
-@Component
+@Singleton
+@Component(modules = [
+//   AppModule::class,
+NetModule::class
+])
 interface AppComponent {
 
     fun inject(target: RegistrationFragment)

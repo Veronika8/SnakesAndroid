@@ -1,8 +1,8 @@
 package com.example.snakesandroid.presentation.credentials.registration
 
 import com.arellomobile.mvp.MvpView
+import com.example.snakesandroid.base.IBaseView
 
-interface IRegistrationView: MvpView {
+interface IRegistrationView: IBaseView {
 
-    fun showError(message: String)
 }

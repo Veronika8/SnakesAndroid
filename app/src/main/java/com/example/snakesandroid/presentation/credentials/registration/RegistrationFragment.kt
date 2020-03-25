@@ -39,8 +39,4 @@ class RegistrationFragment: ABaseFragment(), IRegistrationView {
             presenter.registration("${etLogin.text}", "${etPassword.text}")
         }
     }
-
-    override fun showError(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-    }
 }

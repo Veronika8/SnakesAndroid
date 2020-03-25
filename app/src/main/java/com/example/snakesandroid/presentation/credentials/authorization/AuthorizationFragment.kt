@@ -61,4 +61,9 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
     override fun unlock() {
         visibility(ftlBtnContainer, false)
     }
+
+    override fun onSuccess() {
+        toast("SUCCESS")
+        // Отправить на главную форму
+    }
 }

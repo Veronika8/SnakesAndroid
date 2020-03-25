@@ -1,7 +1,9 @@
 package com.example.snakesandroid.domain.repositories.rest
 
 import android.util.Log
+import com.example.snakesandroid.domain.di.models.Token
 import com.example.snakesandroid.domain.repositories.UserRepository
+import com.example.snakesandroid.exceptions.AuthException
 import com.example.snakesandroid.presentation.credentials.CredentialsActivity
 import okhttp3.Interceptor
 import okhttp3.Request
