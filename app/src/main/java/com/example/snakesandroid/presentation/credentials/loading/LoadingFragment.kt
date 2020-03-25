@@ -4,6 +4,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakesandroid.R
 import com.example.snakesandroid.base.ABaseFragment
+import com.example.snakesandroid.domain.di.components.DaggerAppComponent
+import com.example.snakesandroid.presentation.credentials.ICredentialsRouter
 import javax.inject.Inject
 
 class LoadingFragment : ABaseFragment(), ILoadingView {
@@ -16,13 +18,15 @@ class LoadingFragment : ABaseFragment(), ILoadingView {
     fun providePresenter() = presenter
 
     override fun inject() {
+        DaggerAppComponent.create().inject(this)
     }
 
     override fun getViewId() = R.layout.fragment_loading
 
     override fun onLoadingComplete() {
         activity?.let {
-
+            if (it is ICredentialsRouter)
+                it.showAuthorization()
         }
     }
 }
