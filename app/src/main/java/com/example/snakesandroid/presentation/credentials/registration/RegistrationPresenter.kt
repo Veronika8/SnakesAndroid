@@ -2,7 +2,7 @@ package com.example.snakesandroid.presentation.credentials.registration
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.snakesandroid.repositories.UserRepository
+import com.example.snakesandroid.domain.repositories.UserRepository
 import javax.inject.Inject
 
 @InjectViewState

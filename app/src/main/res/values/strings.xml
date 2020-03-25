@@ -5,7 +5,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_login">Логин</string>
     <string name="text_password">Пароль</string>
-    <string name="repeat_password">Повторите пароль</string>
     <string name="to_come_in">Войти</string>
     <string name="authorization">Авторизация</string>
     <string name="register">Зарегистрироваться</string>
@@ -16,4 +15,5 @@
     <string name="table_recorde">Таблица рекордов</string>
     <string name="name">Имя игрока</string>
     <string name="number_points">кол-во очков</string>
+    <string name="error_login_passwd_undefined">Поле логин или пароль не определены</string>
 </resources>

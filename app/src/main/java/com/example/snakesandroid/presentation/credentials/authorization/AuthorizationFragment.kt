@@ -33,11 +33,32 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        btnLogin.setOnClickListener {
+
+            val login = "${etLogin.text}"
+            val password = "${etPassword.text}"
+
+            if (login.isEmpty() || password.isEmpty()) {
+                toast(R.string.error_login_passwd_undefined)
+                return@setOnClickListener
+            }
+
+            presenter.authorization(login, password)
+        }
+
         btnRegistration.setOnClickListener {
             activity?.let {
                 if (it is ICredentialsRouter)
                     it.showRegistration()
             }
         }
+    }
+
+    override fun lock() {
+        visibility(ftlBtnContainer)
+    }
+
+    override fun unlock() {
+        visibility(ftlBtnContainer, false)
     }
 }

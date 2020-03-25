@@ -1,4 +1,4 @@
-package com.example.snakesandroid.repositories
+package com.example.snakesandroid.domain.repositories
 
 import javax.inject.Inject
 

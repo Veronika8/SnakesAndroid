@@ -1,8 +1,9 @@
 package com.example.snakesandroid.presentation.credentials.authorization
 
 import com.arellomobile.mvp.MvpView
+import com.example.snakesandroid.base.IBaseView
 
-interface IAuthorizationView: MvpView {
+interface IAuthorizationView: IBaseView {
 
     fun showError(message: String)
 }

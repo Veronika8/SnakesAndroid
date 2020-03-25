@@ -11,7 +11,10 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakesandroid.R
 import com.example.snakesandroid.base.ABaseFragment
 import com.example.snakesandroid.domain.di.components.DaggerAppComponent
+import kotlinx.android.synthetic.main.fragment_authorization.*
 import kotlinx.android.synthetic.main.fragment_registration.*
+import kotlinx.android.synthetic.main.fragment_registration.etLogin
+import kotlinx.android.synthetic.main.fragment_registration.etPassword
 import javax.inject.Inject
 
 class RegistrationFragment: ABaseFragment(), IRegistrationView {

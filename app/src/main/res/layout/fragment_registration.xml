@@ -47,13 +47,6 @@
                         android:hint="@string/text_password"
                         android:layout_marginTop="@dimen/et_margin_8dp"
                         android:inputType="textPassword"/>
-                    <EditText
-                        android:id="@+id/etRepPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/repeat_password"
-                        android:layout_marginTop="@dimen/et_margin_8dp"
-                        android:inputType="textPassword"/>
                 </LinearLayout>
 
                 <Button
