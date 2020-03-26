@@ -17,7 +17,7 @@ abstract class ABaseRestApi<S> : IRestApi {
         val clazz = type.actualTypeArguments[0] as Class<S>
 
         this.client = client
-        service = client.createService((clazz))
+        service = client.createService(clazz)
     }
 
     override fun cancelAllRequests() {

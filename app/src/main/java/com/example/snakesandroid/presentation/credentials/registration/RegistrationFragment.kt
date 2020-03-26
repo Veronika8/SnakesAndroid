@@ -35,7 +35,7 @@ class RegistrationFragment: ABaseFragment(), IRegistrationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnLogin.setOnClickListener {
+        btnAuth.setOnClickListener {
             presenter.registration("${etLogin.text}", "${etPassword.text}")
         }
     }
