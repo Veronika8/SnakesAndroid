@@ -1,4 +1,4 @@
-package com.example.snakesandroid.domain.di.models
+package com.example.snakesandroid.domain.repositories.models
 
 data class Token (
     val access: String,

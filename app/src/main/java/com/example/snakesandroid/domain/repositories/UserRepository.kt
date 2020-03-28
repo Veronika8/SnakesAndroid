@@ -1,12 +1,13 @@
 package com.example.snakesandroid.domain.repositories
 
+import android.os.SystemClock
 import com.example.snakesandroid.base.SubRX
 import com.example.snakesandroid.base.standardSubscribeIO
-import com.example.snakesandroid.domain.di.models.Token
-import com.example.snakesandroid.domain.di.models.User
+import com.example.snakesandroid.domain.repositories.models.Token
+import com.example.snakesandroid.domain.repositories.models.User
 import com.example.snakesandroid.domain.repositories.local.UserStorage
 import com.example.snakesandroid.domain.repositories.rest.api.UserRestApi
-import java.util.*
+import java.net.HttpURLConnection
 import javax.inject.Inject
 
 class UserRepository {
@@ -35,7 +36,18 @@ class UserRepository {
 
     fun getUser() = storage.user
 
-    fun refreshToken(token: Token): Token {
-        TODO("Not yet implemented")
+    fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED }): Token? {
+
+        val response = rest.refreshToken(token.refresh).execute()
+        response.body()?.let {
+            storage.save(it)
+            return it
+        }
+
+        if (onRetry(response.code())) {
+            SystemClock.sleep(500)
+            return refreshToken(token)
+        }
+        return null
     }
 }

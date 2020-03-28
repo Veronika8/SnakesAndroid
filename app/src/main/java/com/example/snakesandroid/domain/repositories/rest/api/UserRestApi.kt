@@ -2,7 +2,7 @@ package com.example.snakesandroid.domain.repositories.rest.api
 
 import com.example.snakesandroid.base.ABaseRestApi
 import com.example.snakesandroid.base.IRestClient
-import com.example.snakesandroid.domain.di.models.User
+import com.example.snakesandroid.domain.repositories.models.User
 import com.example.snakesandroid.domain.di.modules.NetModule
 import com.example.snakesandroid.domain.repositories.rest.service.IUserRestApiService
 import javax.inject.Inject
@@ -19,6 +19,6 @@ class UserRestApi : ABaseRestApi<IUserRestApiService> {
     fun login(login: String, password: String)
     = service.login(User(login = login, password = password))
 
-    //     fun refreshToken(refreshToken: String)
-//            = service.refreshToken("refresh_token", refreshToken, CLIENT_ID, CLIENT_SECRET)
+    fun refreshToken(refreshToken: String)
+            = service.refreshToken(refreshToken)
 }

@@ -1,8 +1,11 @@
 package com.example.snakesandroid.domain.repositories.rest.service
 
-import com.example.snakesandroid.domain.di.models.User
+import com.example.snakesandroid.domain.repositories.models.Token
+import com.example.snakesandroid.domain.repositories.models.User
 import io.reactivex.Observable
+import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
 
@@ -22,17 +25,13 @@ interface IUserRestApiService {
     fun login(@Body user: User): Observable<User>
 
 
-//    /**
-//     * Будет использовать для обновления текущего токена пользователя
-//     *
-//     *  Получить токен можно, если задать: grantType="refresh_token" и refresh_token
-//     */
-//    @FormUrlEncoded
-//    @POST("/oauth/token")
-//    fun refreshToken(
-//            @Field("grant_type") grantType: String,
-//            @Field("refresh_token") refreshToken: String,
-//            @Field("client_id") clientId: String,
-//            @Field("client_secret") clientSecret: String
-//    ): Call<AuthToken>
+    /**
+     * Будет использовать для обновления текущего токена пользователя
+     *
+     *  Получить токен можно, если задать: grantType="refresh_token" и refresh_token
+     */
+    @POST("/user/v1/refresh")
+    fun refreshToken(
+        @Header("refresh_token") refreshToken: String
+    ): Call<Token>
 }
