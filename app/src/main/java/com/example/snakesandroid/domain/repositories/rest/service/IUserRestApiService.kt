@@ -1,7 +1,7 @@
 package com.example.snakesandroid.domain.repositories.rest.service
 
-import com.example.snakesandroid.domain.repositories.models.Token
-import com.example.snakesandroid.domain.repositories.models.User
+import com.example.snakesandroid.domain.repositories.models.rest.Token
+import com.example.snakesandroid.domain.repositories.models.rest.User
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.Body

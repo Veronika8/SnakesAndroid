@@ -3,8 +3,8 @@ package com.example.snakesandroid.domain.repositories
 import android.os.SystemClock
 import com.example.snakesandroid.base.SubRX
 import com.example.snakesandroid.base.standardSubscribeIO
-import com.example.snakesandroid.domain.repositories.models.Token
-import com.example.snakesandroid.domain.repositories.models.User
+import com.example.snakesandroid.domain.repositories.models.rest.Token
+import com.example.snakesandroid.domain.repositories.models.rest.User
 import com.example.snakesandroid.domain.repositories.local.UserStorage
 import com.example.snakesandroid.domain.repositories.rest.api.UserRestApi
 import java.net.HttpURLConnection
@@ -34,7 +34,7 @@ class UserRepository {
             .standardSubscribeIO(observer)
     }
 
-    fun getUser() = storage.user
+    fun getUser() = storage.getUser()
 
     fun refreshToken(token: Token, onRetry: (Int) -> Boolean = { it == HttpURLConnection.HTTP_UNAUTHORIZED }): Token? {
 

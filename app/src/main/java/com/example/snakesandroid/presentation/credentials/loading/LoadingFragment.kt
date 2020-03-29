@@ -23,7 +23,7 @@ class LoadingFragment : ABaseFragment(), ILoadingView {
 
     override fun getViewId() = R.layout.fragment_loading
 
-    override fun onLoadingComplete() {
+    override fun showAuthorization() {
         activity?.let {
             if (it is ICredentialsRouter)
                 it.showAuthorization()
