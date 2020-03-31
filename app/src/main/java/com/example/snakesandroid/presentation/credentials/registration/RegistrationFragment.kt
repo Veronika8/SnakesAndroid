@@ -11,6 +11,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakesandroid.R
 import com.example.snakesandroid.base.ABaseFragment
 import com.example.snakesandroid.domain.di.components.DaggerAppComponent
+import com.example.snakesandroid.presentation.credentials.ICredentialsRouter
 import kotlinx.android.synthetic.main.fragment_authorization.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_registration.etLogin
@@ -37,6 +38,13 @@ class RegistrationFragment: ABaseFragment(), IRegistrationView {
 
         btnAuth.setOnClickListener {
             presenter.registration("${etLogin.text}", "${etPassword.text}")
+        }
+    }
+
+    override fun showAuthorization() {
+        activity?.let {
+            if (it is ICredentialsRouter)
+                it.showAuthorization()
         }
     }
 }

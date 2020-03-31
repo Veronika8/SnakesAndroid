@@ -28,7 +28,8 @@ class RegistrationPresenter : MvpPresenter<IRegistrationView> {
                 return@SubRX
             }
 
-            MainActivity.show()
+            viewState.showAuthorization()
+           // MainActivity.show()
 
         }, login, pass)
     }

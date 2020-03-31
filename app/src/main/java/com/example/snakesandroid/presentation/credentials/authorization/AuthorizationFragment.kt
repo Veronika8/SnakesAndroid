@@ -55,11 +55,11 @@ class AuthorizationFragment : ABaseFragment(), IAuthorizationView {
     }
 
     override fun lock() {
-        visibility(ftlBtnContainer)
+        visibility(flBtnContainer)
     }
 
     override fun unlock() {
-        visibility(ftlBtnContainer, false)
+        visibility(flBtnContainer, false)
     }
 
     override fun onSuccess() {

@@ -18,7 +18,7 @@ class Migration : RealmMigration {
 
         }
 
-        if (version++ < newVersion) {
+        if (version++ > newVersion) {
 
         }
     }

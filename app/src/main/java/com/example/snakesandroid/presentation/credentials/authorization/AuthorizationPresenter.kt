@@ -5,6 +5,7 @@ import com.arellomobile.mvp.MvpPresenter
 import com.example.snakesandroid.presentation.main.MainActivity
 import com.example.snakesandroid.base.SubRX
 import com.example.snakesandroid.domain.repositories.UserRepository
+import com.example.snakesandroid.presentation.menu.MenuActivity
 import javax.inject.Inject
 
 @InjectViewState
@@ -26,7 +27,8 @@ class AuthorizationPresenter: MvpPresenter<IAuthorizationView> {
                 return@SubRX
             }
 
-            MainActivity.show()
+            MenuActivity.show()
+           // MainActivity.show()
         }, login, password)
     }
 }

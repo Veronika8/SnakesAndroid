@@ -5,4 +5,5 @@ import com.example.snakesandroid.base.IBaseView
 
 interface IRegistrationView: IBaseView {
 
+    fun showAuthorization()
 }

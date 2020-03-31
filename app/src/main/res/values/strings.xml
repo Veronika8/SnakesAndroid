@@ -12,8 +12,10 @@
     <string name="create_game">Создать новую игру</string>
     <string name="connect_game">Подключиться к игре</string>
     <string name="exit">Выйти</string>
+    <string name="name_game">Название игры</string>
     <string name="table_recorde">Таблица рекордов</string>
     <string name="name">Имя игрока</string>
     <string name="number_points">кол-во очков</string>
+    <string name="number_players">Количество игроков:</string>
     <string name="error_login_passwd_undefined">Поле логин или пароль не определены</string>
 </resources>
