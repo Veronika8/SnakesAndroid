@@ -12,6 +12,7 @@
     <string name="create_game">Создать новую игру</string>
     <string name="connect_game">Подключиться к игре</string>
     <string name="connect_players">Подключение игроков</string>
+    <string name="choose_game">Выбор игры</string>
     <string name="exit">Выйти</string>
     <string name="name_game">Название игры</string>
     <string name="table_recorde">Таблица рекордов</string>
