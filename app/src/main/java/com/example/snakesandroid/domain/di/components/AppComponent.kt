@@ -5,6 +5,7 @@ import com.example.snakesandroid.presentation.credentials.authorization.Authoriz
 import com.example.snakesandroid.presentation.credentials.loading.LoadingFragment
 import com.example.snakesandroid.presentation.credentials.registration.RegistrationFragment
 import com.example.snakesandroid.presentation.menu.createGame.CreateGameFragment
+import com.example.snakesandroid.presentation.menu.gamingLobby.GamingLobbyFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -19,4 +20,5 @@ interface AppComponent {
     fun inject(target: AuthorizationFragment)
     fun inject(target: LoadingFragment)
     fun inject(target: CreateGameFragment)
+    fun inject(target: GamingLobbyFragment)
 }

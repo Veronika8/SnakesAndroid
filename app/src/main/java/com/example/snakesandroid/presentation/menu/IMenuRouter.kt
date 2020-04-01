@@ -5,4 +5,5 @@ interface IMenuRouter {
     fun showMenu()
     fun showCreateGame()
     fun showConnectGame()
+    fun showGamingLobby()
 }

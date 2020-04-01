@@ -18,7 +18,7 @@ class CreateGamePresenter: MvpPresenter<ICreateGameView> {
 
         userRepository.createGame({
 
-
+            viewState.showGamingLobby()
         }, nameGame, numPlayers)
     }
 }

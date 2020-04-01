@@ -11,6 +11,7 @@
     <string name="registration">Регистрация</string>
     <string name="create_game">Создать новую игру</string>
     <string name="connect_game">Подключиться к игре</string>
+    <string name="connect_players">Подключение игроков</string>
     <string name="exit">Выйти</string>
     <string name="name_game">Название игры</string>
     <string name="table_recorde">Таблица рекордов</string>
@@ -19,4 +20,5 @@
     <string name="number_players">Количество игроков:</string>
     <string name="error_login_passwd_undefined">Поле логин или пароль не определены</string>
     <string name="error_num_players">Должно быть не меньше 1 и не больше 8 игроков</string>
+    <string name="kick">kick</string>
 </resources>

@@ -4,4 +4,5 @@ import com.example.snakesandroid.base.IBaseView
 
 interface ICreateGameView : IBaseView {
 
+    fun showGamingLobby()
 }

@@ -11,6 +11,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.snakesandroid.R
 import com.example.snakesandroid.base.ABaseFragment
 import com.example.snakesandroid.domain.di.components.DaggerAppComponent
+import com.example.snakesandroid.presentation.menu.IMenuRouter
 import kotlinx.android.synthetic.main.fragment_create_game.*
 import javax.inject.Inject
 
@@ -57,5 +58,12 @@ class CreateGameFragment : ABaseFragment(), ICreateGameView {
 
             presenter.createGame(nameGame, numPlayer)
         }
+    }
+
+    override fun showGamingLobby() {
+       activity?.let {
+           if (it is IMenuRouter)
+               it.showGamingLobby()
+       }
     }
 }

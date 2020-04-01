@@ -1,13 +1,13 @@
 package com.example.snakesandroid.presentation.menu
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.snakesandroid.App
 import com.example.snakesandroid.R
 import com.example.snakesandroid.base.ABaseActivity
 import com.example.snakesandroid.presentation.menu.connectToGame.ConnectGameFragment
 import com.example.snakesandroid.presentation.menu.createGame.CreateGameFragment
+import com.example.snakesandroid.presentation.menu.gamingLobby.GamingLobbyFragment
 import com.example.snakesandroid.presentation.menu.mainMenu.MenuFragment
 
 class MenuActivity : ABaseActivity(), IMenuRouter {
@@ -43,5 +43,9 @@ class MenuActivity : ABaseActivity(), IMenuRouter {
 
     override fun showConnectGame() {
         replace(ConnectGameFragment(), "Connect")
+    }
+
+    override fun showGamingLobby() {
+        replace(GamingLobbyFragment(), "Lobby")
     }
 }
