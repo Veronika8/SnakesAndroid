@@ -5,18 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arellomobile.mvp.presenter.InjectPresenter
+import com.arellomobile.mvp.presenter.ProvidePresenter
 
 import com.example.snakesandroid.R
 import com.example.snakesandroid.base.ABaseFragment
+import com.example.snakesandroid.domain.di.components.DaggerAppComponent
 import kotlinx.android.synthetic.main.fragment_create_game.*
+import javax.inject.Inject
 
-class CreateGameFragment : ABaseFragment() {
+class CreateGameFragment : ABaseFragment(), ICreateGameView {
 
-    private var numPlayers: Int = 1
+    @Inject
+    @InjectPresenter
+    lateinit var presenter: CreateGamePresenter
+
+    @ProvidePresenter
+    fun providePresenter() = presenter
 
     override fun inject() {
-
+        DaggerAppComponent.create().inject(this)
     }
+
+    private var numPlayers: Int = 1
 
     override fun getViewId() = R.layout.fragment_create_game
 
@@ -24,18 +35,27 @@ class CreateGameFragment : ABaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
             imgBtnPlus.setOnClickListener {
+                if (numPlayers >= 8) {
+                    toast(R.string.error_num_players)
+                    return@setOnClickListener
+                }
                 tvNumPlayers.text = "${++numPlayers}"
             }
 
             imgBtnMinus.setOnClickListener {
+                if (numPlayers <= 1) {
+                    toast(R.string.error_num_players)
+                    return@setOnClickListener
+                }
                 tvNumPlayers.text = "${--numPlayers}"
             }
-    }
 
-//    fun numPlus(view: View) {
-//        val numPlayersStr = etNumPlayers.text.toString()
-//        var numPlayers: Int = Integer.parseInt(numPlayersStr)
-//        numPlayers++
-//        etNumPlayers.text = numPlayers.toString()
-//    }
+        btnCreateGame.setOnClickListener {
+            val nameGame = "${etNameGame.text}"
+            val numPlayerStr: String = tvNumPlayers.text.toString()
+            val numPlayer: Int = numPlayerStr.toInt()
+
+            presenter.createGame(nameGame, numPlayer)
+        }
+    }
 }

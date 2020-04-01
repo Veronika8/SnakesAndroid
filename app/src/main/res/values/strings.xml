@@ -18,4 +18,5 @@
     <string name="number_points">кол-во очков</string>
     <string name="number_players">Количество игроков:</string>
     <string name="error_login_passwd_undefined">Поле логин или пароль не определены</string>
+    <string name="error_num_players">Должно быть не меньше 1 и не больше 8 игроков</string>
 </resources>

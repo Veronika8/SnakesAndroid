@@ -4,6 +4,7 @@ import com.example.snakesandroid.domain.di.modules.NetModule
 import com.example.snakesandroid.presentation.credentials.authorization.AuthorizationFragment
 import com.example.snakesandroid.presentation.credentials.loading.LoadingFragment
 import com.example.snakesandroid.presentation.credentials.registration.RegistrationFragment
+import com.example.snakesandroid.presentation.menu.createGame.CreateGameFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,4 +18,5 @@ interface AppComponent {
     fun inject(target: RegistrationFragment)
     fun inject(target: AuthorizationFragment)
     fun inject(target: LoadingFragment)
+    fun inject(target: CreateGameFragment)
 }

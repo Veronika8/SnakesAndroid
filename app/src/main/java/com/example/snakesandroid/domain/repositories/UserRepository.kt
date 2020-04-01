@@ -50,4 +50,8 @@ class UserRepository {
         }
         return null
     }
+
+    fun createGame(subscriber: (String) -> Unit, nameGame: String, numPlayers: Int) {
+        subscriber.invoke("$nameGame : $numPlayers")
+    }
 }
