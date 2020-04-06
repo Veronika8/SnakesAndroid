@@ -8,9 +8,10 @@ import javax.inject.Inject
 @InjectViewState
 class GamingLobbyPresenter: MvpPresenter<IGamingLobby> {
 
-    @Inject
-    lateinit var userRepository: UserRepository
+    private val userRepository: UserRepository
 
     @Inject
-    constructor()
+    constructor(userRepository: UserRepository) {
+        this.userRepository = userRepository
+    }
 }

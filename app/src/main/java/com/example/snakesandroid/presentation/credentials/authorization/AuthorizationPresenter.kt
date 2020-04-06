@@ -11,11 +11,12 @@ import javax.inject.Inject
 @InjectViewState
 class AuthorizationPresenter: MvpPresenter<IAuthorizationView> {
 
-    @Inject
-    lateinit var userRepository: UserRepository
+    private val userRepository: UserRepository
 
     @Inject
-    constructor()
+    constructor(userRepository: UserRepository) {
+        this.userRepository = userRepository
+    }
 
     fun authorization(login: String, password: String){
 

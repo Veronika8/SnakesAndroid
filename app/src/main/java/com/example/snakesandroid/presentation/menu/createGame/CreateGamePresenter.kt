@@ -8,11 +8,12 @@ import javax.inject.Inject
 @InjectViewState
 class CreateGamePresenter: MvpPresenter<ICreateGameView> {
 
-    @Inject
-    lateinit var userRepository: UserRepository
+    private val userRepository: UserRepository
 
     @Inject
-    constructor()
+    constructor(userRepository: UserRepository) {
+        this.userRepository = userRepository
+    }
 
     fun createGame(nameGame: String, numPlayers: Int) {
 

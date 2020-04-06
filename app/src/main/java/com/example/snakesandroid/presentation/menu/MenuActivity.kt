@@ -46,6 +46,6 @@ class MenuActivity : ABaseActivity(), IMenuRouter {
     }
 
     override fun showGamingLobby() {
-        replace(GamingLobbyFragment(), "Lobby")
+        replace(GamingLobbyFragment())
     }
 }
