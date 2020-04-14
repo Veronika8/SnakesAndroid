@@ -6,12 +6,12 @@ import com.example.snakesandroid.R
 
 abstract class ABaseActivity : AppCompatActivity() {
 
-    //abstract fun getContainer(): Int
+    open fun getContainer(): Int = R.id.container
 
     fun replace(fragment: Fragment, backStack: String? = null, tag: String? = null) {
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment, tag).apply {
+            .replace(getContainer(), fragment, tag).apply {
                 backStack?.let { addToBackStack(it) }
             }
             .commit()

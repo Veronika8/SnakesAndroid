@@ -5,10 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.snakesandroid.App
 import com.example.snakesandroid.R
+import com.example.snakesandroid.base.ABaseActivity
 import com.example.snakesandroid.presentation.credentials.CredentialsActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ABaseActivity() {
 
     companion object {
 

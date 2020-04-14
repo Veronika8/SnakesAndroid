@@ -23,8 +23,6 @@ class TokenInterceptor : Interceptor {
     private val userRepository: UserRepository
     private val lock = ReentrantLock()
 
-
-    @Inject
     constructor(userRepository: UserRepository) {
         this.userRepository = userRepository
     }
