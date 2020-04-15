@@ -14,6 +14,7 @@
         android:background="@color/colorGray">
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -26,6 +27,7 @@
             android:layout_gravity="center"
             android:layout_weight="1">
             <TextView
+                android:id="@+id/tvNumPlayers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
@@ -36,6 +38,7 @@
                 android:textSize="25sp"
                 tools:text="/"/>
             <TextView
+                android:id="@+id/tvAllNumPlayers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
