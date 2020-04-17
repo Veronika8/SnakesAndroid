@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.example.snakesandroid.GameActivity
 
 import com.example.snakesandroid.R
 import com.example.snakesandroid.base.ABaseFragment

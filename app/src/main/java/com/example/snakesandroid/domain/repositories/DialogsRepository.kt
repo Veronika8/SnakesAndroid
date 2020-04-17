@@ -1,5 +1,6 @@
 package com.example.snakesandroid.domain.repositories
 
+import com.example.snakesandroid.domain.repositories.models.Player
 import javax.inject.Inject
 
 class DialogsRepository {
@@ -7,7 +8,7 @@ class DialogsRepository {
     @Inject
     constructor()
 
-    fun loadDialogs() {
+    fun loadPlayers(call: (List<Player>) -> Unit) {
 
     }
 }
