@@ -9,6 +9,7 @@ import kotlin.random.Random
 class PlayingFieldUI : IElementUI {
 
     private val elements = mutableListOf<ElementUI>()
+    private val snake = ElementUI()
     private val bgPaint = Paint().apply { color = Color.YELLOW }
 
     var width: Int=0
@@ -16,22 +17,19 @@ class PlayingFieldUI : IElementUI {
 
     init {
         val random = Random(System.currentTimeMillis())
-//        for (i in 1..480)
-//            elements.add(ElementUI().apply {
-//                state = random.nextInt(2)
-//            })
-        for (i in 1..3)
-            elements.add(ElementUI().apply {
-                state = 2
-            })
+        for (i in 1..1890)
+            elements.add(ElementUI().apply { state = random.nextInt(3) })
+//        elements[random.nextInt(1890)] = ElementUI().apply { state = 1 }
+//        elements.add(ElementUI().apply { state = 2 })
     }
+
     override fun render(canvas: Canvas) {
         canvas.drawRect(Rect(0, 0, width, height), bgPaint)
 
         var row = 0
         var col = 0
         val itemWidth = width/35
-        val itemHeight = height/52
+        val itemHeight = height/54
 
         for (element in elements) {
 
@@ -45,7 +43,7 @@ class PlayingFieldUI : IElementUI {
 
             if(++col == 35) {
                 col = 0
-                if (++row == 52)
+                if (++row == 54)
                     return
             }
         }
