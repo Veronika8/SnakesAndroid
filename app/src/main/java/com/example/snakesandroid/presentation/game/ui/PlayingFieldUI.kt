@@ -18,9 +18,9 @@ class PlayingFieldUI : IElementUI {
     init {
         val random = Random(System.currentTimeMillis())
         for (i in 1..1890)
-            elements.add(ElementUI().apply { state = random.nextInt(3) })
-//        elements[random.nextInt(1890)] = ElementUI().apply { state = 1 }
-//        elements.add(ElementUI().apply { state = 2 })
+            elements.add(ElementUI().apply { state = 0 })
+        elements[random.nextInt(1890)] = ElementUI().apply { state = 1 }
+        //elements.add(ElementUI().apply { state = 2 })
     }
 
     override fun render(canvas: Canvas) {
