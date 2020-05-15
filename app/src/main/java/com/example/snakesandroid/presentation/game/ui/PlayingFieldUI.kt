@@ -8,44 +8,57 @@ import kotlin.random.Random
 
 class PlayingFieldUI : IElementUI {
 
-    private val elements = mutableListOf<ElementUI>()
-    private val snake = ElementUI()
+    private val food = mutableListOf<ElementFoodUI>()
+    private val snakes = mutableListOf<ElementBlockSnakeUI>()
     private val bgPaint = Paint().apply { color = Color.YELLOW }
 
     var width: Int=0
     var height: Int=0
 
     init {
-        val random = Random(System.currentTimeMillis())
-        for (i in 1..1890)
-            elements.add(ElementUI().apply { state = 0 })
-        elements[random.nextInt(1890)] = ElementUI().apply { state = 1 }
-        //elements.add(ElementUI().apply { state = 2 })
+        for (i in 1..3)
+            snakes.add(ElementBlockSnakeUI())
+        food.add(ElementFoodUI())
     }
 
     override fun render(canvas: Canvas) {
         canvas.drawRect(Rect(0, 0, width, height), bgPaint)
 
+        val random = Random(System.currentTimeMillis())
         var row = 0
         var col = 0
         val itemWidth = width/35
-        val itemHeight = height/54
+        val itemHeight = height/57
 
-        for (element in elements) {
+        for (snake in snakes ) {
 
-            element.x = col*itemWidth
-            element.y = row*itemHeight
+            snake.x = col*itemWidth
+            snake.y = row*itemHeight
 
-            element.width = itemWidth
-            element.height = itemHeight
+            snake.width = itemWidth
+            snake.height = itemHeight
 
-            element.render(canvas)
+            if (row == 0 && col == 0)
+                snake.renderHeadSnake(canvas)
+            else snake.renderBlockSnake(canvas)
 
             if(++col == 35) {
                 col = 0
-                if (++row == 54)
+                if (++row == 57)
                     return
             }
+        }
+        for (fd in food ) {
+            row = random.nextInt(57)
+            col = random.nextInt(35)
+
+            fd.x = col*itemWidth
+            fd.y = row*itemHeight
+
+            fd.width = itemWidth
+            fd.height = itemHeight
+
+            fd.render(canvas)
         }
     }
 }
