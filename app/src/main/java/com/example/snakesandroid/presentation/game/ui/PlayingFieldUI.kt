@@ -50,9 +50,9 @@ class PlayingFieldUI : IElementUI {
 //                    return
 //            }
 //        }
-        for(z in 1..3) {
-            snakes.x[z] = col*itemWidth
-            snakes.y[z] = row*itemHeight
+        for(z in 0..2) {
+            snakes.x[col] = col*itemWidth
+            snakes.y[row] = row*itemHeight
 
             snakes.width = itemWidth
             snakes.height = itemHeight
@@ -78,6 +78,12 @@ class PlayingFieldUI : IElementUI {
             fd.height = itemHeight
 
             fd.render(canvas)
+        }
+    }
+    fun move() {
+        for(t in 3 downTo 1) {
+            snakes.x[t]=snakes.x[t-1]
+            snakes.y[t]=snakes.y[t-1]
         }
     }
 }

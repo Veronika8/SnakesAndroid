@@ -20,8 +20,8 @@ open class ElementUI: IElementUI {
 
 //    var x: Int = 0
 //    var y: Int = 0
-    val x = IntArray(1995)
-    val y = IntArray(1995)
+    val x = IntArray(35)
+    val y = IntArray(57)
     var width: Int = 0
     var height: Int = 0
     var state: Int = STATE_UNDEFINED
