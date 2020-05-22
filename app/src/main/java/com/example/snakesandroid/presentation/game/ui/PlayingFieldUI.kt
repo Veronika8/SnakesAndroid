@@ -9,8 +9,8 @@ import kotlin.random.Random
 class PlayingFieldUI : IElementUI {
 
     private val food = mutableListOf<ElementFoodUI>()
-    //private val snakes = mutableListOf<ElementBlockSnakeUI>()
-    val snakes = ElementBlockSnakeUI()
+    private val snakes = mutableListOf<ElementBlockSnakeUI>()
+    //val snakes = ElementBlockSnakeUI()
     private val bgPaint = Paint().apply { color = Color.YELLOW }
 
     var width: Int=0
@@ -32,34 +32,17 @@ class PlayingFieldUI : IElementUI {
         val itemWidth = width/35
         val itemHeight = height/57
 
-//        for (snake in snakes ) {
-//
-//            snake.x = col*itemWidth
-//            snake.y = row*itemHeight
-//
-//            snake.width = itemWidth
-//            snake.height = itemHeight
-//
-//            if (row == 0 && col == 0)
-//                snake.renderHeadSnake(canvas)
-//            else snake.renderBlockSnake(canvas)
-//
-//            if(++col == 35) {
-//                col = 0
-//                if (++row == 57)
-//                    return
-//            }
-//        }
-        for(z in 0..2) {
-            snakes.x[col] = col*itemWidth
-            snakes.y[row] = row*itemHeight
+        for (snake in snakes ) {
 
-            snakes.width = itemWidth
-            snakes.height = itemHeight
+            snake.x = col*itemWidth
+            snake.y = row*itemHeight
 
-            if (z==0)
-                snakes.renderHeadSnake(canvas, z)
-            else snakes.renderBlockSnake(canvas, z)
+            snake.width = itemWidth
+            snake.height = itemHeight
+
+            if (row == 0 && col == 0)
+                snake.renderHeadSnake(canvas)
+            else snake.renderBlockSnake(canvas)
 
             if(++col == 35) {
                 col = 0
@@ -67,12 +50,29 @@ class PlayingFieldUI : IElementUI {
                     return
             }
         }
+//        for(z in 0..2) {
+//            snakes.x[col] = col*itemWidth
+//            snakes.y[row] = row*itemHeight
+//
+//            snakes.width = itemWidth
+//            snakes.height = itemHeight
+//
+//            if (z==0)
+//                snakes.renderHeadSnake(canvas, z)
+//            else snakes.renderBlockSnake(canvas, z)
+//
+//            if(++col == 35) {
+//                col = 0
+//                if (++row == 57)
+//                    return
+//            }
+//        }
         for (fd in food ) {
             row = random.nextInt(57)
             col = random.nextInt(35)
 
-            fd.x[0] = col*itemWidth
-            fd.y[0] = row*itemHeight
+            fd.x = col*itemWidth
+            fd.y = row*itemHeight
 
             fd.width = itemWidth
             fd.height = itemHeight
@@ -82,8 +82,8 @@ class PlayingFieldUI : IElementUI {
     }
     fun move() {
         for(t in 3 downTo 1) {
-            snakes.x[t]=snakes.x[t-1]
-            snakes.y[t]=snakes.y[t-1]
+//            snakes.x[t]=snakes.x[t-1]
+//            snakes.y[t]=snakes.y[t-1]
         }
     }
 }

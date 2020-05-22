@@ -5,13 +5,13 @@ import android.graphics.Canvas
 class ElementFoodUI: ElementUI() {
 
     override fun render(canvas: Canvas) {
-        var z =0 //!!!!!!!!!!!!!!!!!!!
-        renderFood(canvas, z)
+       // var z =0 //!!!!!!!!!!!!!!!!!!!
+        renderFood(canvas)
     }
 
-     fun renderFood(canvas: Canvas, z: Int) {
-        val x = x[z].toFloat()
-        val y = y[z].toFloat()
+     fun renderFood(canvas: Canvas) {
+        val x = x.toFloat()
+        val y = y.toFloat()
         val w = width.toFloat()
         val h = height.toFloat()
 

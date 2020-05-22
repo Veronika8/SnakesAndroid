@@ -7,9 +7,9 @@ class ElementBlockSnakeUI: ElementUI() {
 
     override fun render(canvas: Canvas) { }
 
-    fun renderBlockSnake(canvas: Canvas, z: Int) {
-        val x = x[z].toFloat()
-        val y = y[z].toFloat()
+    fun renderBlockSnake(canvas: Canvas) {
+        val x = x.toFloat()
+        val y = y.toFloat()
         val w = width.toFloat()
         val h = height.toFloat()
 
@@ -18,10 +18,10 @@ class ElementBlockSnakeUI: ElementUI() {
         canvas.drawRect(x+w*0.7f, y+h*0.7f, x+w-w*0.7f, y+h-h*0.7f, paintBlue)
     }
 
-     fun renderHeadSnake(canvas: Canvas, z: Int) {
+     fun renderHeadSnake(canvas: Canvas) {
         val paintClr = Paint().apply { color = getRandomColor() }
-        val x = x[z].toFloat()
-        val y = y[z].toFloat()
+        val x = x.toFloat()
+        val y = y.toFloat()
         val w = width.toFloat()
         val h = height.toFloat()
 
