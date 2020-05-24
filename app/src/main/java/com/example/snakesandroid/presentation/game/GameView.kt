@@ -2,6 +2,7 @@ package com.example.snakesandroid.presentation.game
 
 import android.content.Context
 import android.graphics.Canvas
+import android.os.Handler
 import android.util.AttributeSet
 import android.view.SurfaceHolder
 import android.view.SurfaceView
@@ -11,8 +12,14 @@ import java.lang.Exception
 class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
     : SurfaceView(context, attrs, defStyleAttr), SurfaceHolder.Callback {
 
+    private val sHandler = Handler()
+    private val snakeRunnable = SnakeRunnable()
+
     override fun surfaceChanged(holder: SurfaceHolder?, format: Int, width: Int, height: Int) { }
-    override fun surfaceDestroyed(holder: SurfaceHolder?) { sfHolder = null }
+    override fun surfaceDestroyed(holder: SurfaceHolder?) {
+        sfHolder = null
+        sHandler.removeCallbacks(snakeRunnable)
+    }
     override fun surfaceCreated(holder: SurfaceHolder?) { sfHolder = holder }
 
     private var sfHolder: SurfaceHolder? = null
@@ -30,7 +37,8 @@ class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        postDelayed({render() }, 2000)
+        postOnAnimation({render()})
+        //postDelayed({render() }, 2000)
     }
 
     fun render() {
@@ -51,5 +59,19 @@ class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         playingField.width=width
         playingField.height=height
         playingField.render(canvas)
+        sHandler.postDelayed(snakeRunnable, 500L)
+    }
+
+    fun moveSnake() {
+        playingField.move()
+        invalidate()
+    }
+
+    //??????????????????????????????
+    private inner class SnakeRunnable : Runnable {
+        override fun run() {
+            render()
+            moveSnake()
+        }
     }
 }

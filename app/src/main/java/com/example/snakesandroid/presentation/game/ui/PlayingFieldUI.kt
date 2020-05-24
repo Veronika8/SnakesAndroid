@@ -13,77 +13,108 @@ class PlayingFieldUI : IElementUI {
     //val snakes = ElementBlockSnakeUI()
     private val bgPaint = Paint().apply { color = Color.YELLOW }
 
-    var width: Int=0
-    var height: Int=0
+    var width: Int = 0
+    var height: Int = 0
 
     init {
-        //for (i in 1..3)
-           // snakes.add(ElementBlockSnakeUI())
+        addBlock()
         food.add(ElementFoodUI())
-
     }
 
-    override fun render(canvas: Canvas) {
-        canvas.drawRect(Rect(0, 0, width, height), bgPaint)
+    fun addBlock() {
+//        var row = 0
+//        var col = 0
+//        val itemWidth = width / 35
+//        val itemHeight = height / 57
 
-        val random = Random(System.currentTimeMillis())
-        var row = 0
-        var col = 0
-        val itemWidth = width/35
-        val itemHeight = height/57
+        if (snakes.isEmpty()) {
+            for (i in 1..3) {
+                snakes.add(ElementBlockSnakeUI())//.apply {
+//                    x = col*itemWidth
+//                    y = row * itemHeight
+//                    width = itemWidth
+//                    height = itemHeight
+//
+//                    if (++col == 35) {
+//                        col = 0
+//                        if (++row == 57)
+//                            return
+//                    }
+//                })
+                if (i == 3) {
+                    snakes.last().isStart = true
+                }
+            }
+        }
+    }
+        override fun render(canvas: Canvas) {
+            canvas.drawRect(Rect(0, 0, width, height), bgPaint)
+            renderSnake(canvas)
+            renderFood(canvas)
+        }
 
-        for (snake in snakes ) {
+    var row = 0
+    var col = 0
+        fun renderSnake(canvas: Canvas) {
 
-            snake.x = col*itemWidth
-            snake.y = row*itemHeight
+            val itemWidth = width / 35
+            val itemHeight = height / 57
 
-            snake.width = itemWidth
-            snake.height = itemHeight
+            for (i in 0 until snakes.size) {
 
-            if (row == 0 && col == 0)
-                snake.renderHeadSnake(canvas)
-            else snake.renderBlockSnake(canvas)
+            snakes[i].x = col*itemWidth
+            snakes[i].y = row*itemHeight
+
+            snakes[i].width = itemWidth
+            snakes[i].height = itemHeight
+
+                if (snakes[i].isStart == true)
+                    snakes[i].renderHeadSnake(canvas)
+                else snakes[i].renderBlockSnake(canvas)
 
             if(++col == 35) {
                 col = 0
                 if (++row == 57)
                     return
             }
+            }
         }
-//        for(z in 0..2) {
-//            snakes.x[col] = col*itemWidth
-//            snakes.y[row] = row*itemHeight
-//
-//            snakes.width = itemWidth
-//            snakes.height = itemHeight
-//
-//            if (z==0)
-//                snakes.renderHeadSnake(canvas, z)
-//            else snakes.renderBlockSnake(canvas, z)
-//
-//            if(++col == 35) {
-//                col = 0
-//                if (++row == 57)
-//                    return
-//            }
-//        }
-        for (fd in food ) {
-            row = random.nextInt(57)
-            col = random.nextInt(35)
 
-            fd.x = col*itemWidth
-            fd.y = row*itemHeight
+        fun renderFood(canvas: Canvas) {
+            val random = Random(System.currentTimeMillis())
+            val itemWidth = width / 35
+            val itemHeight = height / 57
 
-            fd.width = itemWidth
-            fd.height = itemHeight
+            for (fd in food) {
+                var row = random.nextInt(57)
+                var col = random.nextInt(35)
 
-            fd.render(canvas)
+                fd.x = col * itemWidth
+                fd.y = row * itemHeight
+
+                fd.width = itemWidth
+                fd.height = itemHeight
+
+                fd.render(canvas)
+            }
+        }
+
+        fun move() {
+//            var row = 0
+//            var col = 0
+            val itemWidth = width / 35
+            val itemHeight = height / 57
+
+            for (snake in snakes) {
+                snake.x =snake.x + itemWidth
+                snake.y =snake.y+itemHeight
+                snake.width = itemWidth
+                snake.height = itemHeight
+
+                if (snake.x + itemWidth > width)
+                    snake.x = 0
+                if (snake.y + itemHeight > height)
+                    snake.y = 0
+            }
         }
     }
-    fun move() {
-        for(t in 3 downTo 1) {
-//            snakes.x[t]=snakes.x[t-1]
-//            snakes.y[t]=snakes.y[t-1]
-        }
-    }
-}

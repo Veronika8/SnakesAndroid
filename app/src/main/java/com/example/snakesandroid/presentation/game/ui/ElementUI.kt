@@ -18,10 +18,9 @@ open class ElementUI: IElementUI {
     val paintBlue = Paint().apply { color = Color.BLUE }
     val paintYellow = Paint().apply { color = Color.YELLOW }
 
+    var isStart: Boolean = false
     var x: Int = 0
     var y: Int = 0
-//    val x = IntArray(35)
-//    val y = IntArray(57)
     var width: Int = 0
     var height: Int = 0
     var state: Int = STATE_UNDEFINED
