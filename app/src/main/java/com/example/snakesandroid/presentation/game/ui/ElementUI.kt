@@ -23,14 +23,10 @@ open class ElementUI: IElementUI {
     var y: Int = 0
     var width: Int = 0
     var height: Int = 0
+    var direction: Int = 0
     var state: Int = STATE_UNDEFINED
 
-    override fun render(canvas: Canvas) {
-//        when(state) {
-//            STATE_FOOD -> ElementFoodUI().render(canvas) //renderFood(canvas) //
-//            STATE_SNAKE -> ElementBlockSnakeUI().render(canvas)//renderBlockSnake(canvas)
-//        }
-    }
+    override fun render(canvas: Canvas) { }
 
     fun getRandomColor(): Int {
         val rnd = Random(System.currentTimeMillis())

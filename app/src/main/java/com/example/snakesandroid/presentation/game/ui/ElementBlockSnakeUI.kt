@@ -5,6 +5,8 @@ import android.graphics.Paint
 
 class ElementBlockSnakeUI: ElementUI() {
 
+    val paintClr = Paint().apply { color = getRandomColor() }
+
     override fun render(canvas: Canvas) { }
 
     fun renderBlockSnake(canvas: Canvas) {
@@ -19,7 +21,7 @@ class ElementBlockSnakeUI: ElementUI() {
     }
 
      fun renderHeadSnake(canvas: Canvas) {
-        val paintClr = Paint().apply { color = getRandomColor() }
+
         val x = x.toFloat()
         val y = y.toFloat()
         val w = width.toFloat()

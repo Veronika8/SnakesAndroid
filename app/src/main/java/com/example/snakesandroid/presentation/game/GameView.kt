@@ -15,6 +15,13 @@ class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private val sHandler = Handler()
     private val snakeRunnable = SnakeRunnable()
 
+    companion object {
+        const val RIGHT_DIRECTION = 0
+        const val LEFT_DIRECTION = 1
+        const val BOTTOM_DIRECTION = 2
+        const val TOP_DIRECTION = 3
+    }
+
     override fun surfaceChanged(holder: SurfaceHolder?, format: Int, width: Int, height: Int) { }
     override fun surfaceDestroyed(holder: SurfaceHolder?) {
         sfHolder = null
@@ -38,7 +45,7 @@ class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         super.onAttachedToWindow()
 
         postOnAnimation({render()})
-        //postDelayed({render() }, 2000)
+//        postDelayed({render() }, 2000)
     }
 
     fun render() {
@@ -67,11 +74,16 @@ class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         invalidate()
     }
 
-    //??????????????????????????????
+    //
     private inner class SnakeRunnable : Runnable {
         override fun run() {
             render()
             moveSnake()
         }
+    }
+
+    fun setDirection(direction: Int) {
+        playingField.setDirection(direction)
+        invalidate()
     }
 }

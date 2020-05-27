@@ -1,11 +1,14 @@
 package com.example.snakesandroid
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.snakesandroid.base.ABaseActivity
+import com.example.snakesandroid.presentation.game.GameView
+import com.example.snakesandroid.presentation.game.IGameView
+import com.example.snakesandroid.presentation.game.ui.PlayingFieldUI
+import kotlinx.android.synthetic.main.activity_game.*
 
-class GameActivity : ABaseActivity() {
+class GameActivity : ABaseActivity(), IGameView {
 
     companion object {
 
@@ -24,5 +27,34 @@ class GameActivity : ABaseActivity() {
 
         if(savedInstanceState != null)
             return
+
+        left.setOnClickListener {
+            Left()
+        }
+        bottom.setOnClickListener {
+            Bottom()
+        }
+        top.setOnClickListener {
+            Top()
+        }
+        right.setOnClickListener {
+            Right()
+        }
+    }
+
+    override fun Left() {
+        PlayingFieldUI().setDirection(GameView.LEFT_DIRECTION)
+    }
+
+    override fun Bottom() {
+        PlayingFieldUI().setDirection(GameView.BOTTOM_DIRECTION)
+    }
+
+    override fun Top() {
+        PlayingFieldUI().setDirection(GameView.TOP_DIRECTION)
+    }
+
+    override fun Right() {
+        PlayingFieldUI().setDirection(GameView.RIGHT_DIRECTION)
     }
 }

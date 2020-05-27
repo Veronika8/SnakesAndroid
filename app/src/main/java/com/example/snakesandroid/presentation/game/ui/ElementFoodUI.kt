@@ -9,7 +9,7 @@ class ElementFoodUI: ElementUI() {
         renderFood(canvas)
     }
 
-     fun renderFood(canvas: Canvas) {
+     private fun renderFood(canvas: Canvas) {
         val x = x.toFloat()
         val y = y.toFloat()
         val w = width.toFloat()
