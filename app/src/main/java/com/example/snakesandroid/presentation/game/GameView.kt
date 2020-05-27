@@ -14,6 +14,7 @@ class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
 
     private val sHandler = Handler()
     private val snakeRunnable = SnakeRunnable()
+    private val playingField = PlayingFieldUI()
 
     companion object {
         const val RIGHT_DIRECTION = 0
@@ -35,8 +36,6 @@ class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         value?.addCallback(this)
     }
 
-    private val playingField = PlayingFieldUI()
-
     init {
         sfHolder = holder
     }
@@ -44,8 +43,8 @@ class GameView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        postOnAnimation({render()})
-//        postDelayed({render() }, 2000)
+       // postOnAnimation({render()})
+        postDelayed({render() }, 2000)
     }
 
     fun render() {
